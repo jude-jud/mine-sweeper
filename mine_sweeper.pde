@@ -5,5 +5,4 @@ void setup(){
 }
 void draw(){
   g.show();
-  g.placeBombs();
 }
