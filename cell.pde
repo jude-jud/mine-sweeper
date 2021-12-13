@@ -17,11 +17,18 @@ class Cell {
     fill(255,255,255);
     if(bomb == true && click == true){
       fill(255,0,0);
+      rect(column*20,row*20,w,h);
     }
     else if (click == true){
-      text(num,column*20,row*20);
+      fill(0,255,0);
+      rect(column*20,row*20,w,h);
+      fill(0);
+      text(num,column*20+10,row*20+10);
     }
-    rect(column*20,row*20,w,h);
+    else{
+      fill(255);
+      rect(column*20,row*20,w,h);
+    }
   }
   public boolean mouseover(){
     if((mouseX >= column*20&&mouseX <= column*20+20)&&(mouseY >= row*20&&mouseY <= row*20+20)){
