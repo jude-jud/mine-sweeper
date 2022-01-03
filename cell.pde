@@ -15,9 +15,13 @@ class Cell {
   }
   public void show() {
     fill(255, 255, 255);
-    if (bomb == true && click == true) {
+    if(flag == true){
+      image(f,column*20,row*20,20,20);
+    }
+    else if (bomb == true && click == true) {
       fill(255, 0, 0);
       rect(column*20, row*20, w, h);
+      noLoop();
     } else if (click == true) {
       fill(0, 255, 0);
       rect(column*20, row*20, w, h);
@@ -38,9 +42,19 @@ class Cell {
 
   public void update() {
     show();
-    if (mouseover()== true && mousePressed == true) {
+    if (mouseover()== true && leftClick == true) {
       click = true;
+      
       reveal();
+    }
+    if (mouseover()== true && rightClick == true) {
+       if(flag == true){
+         flag = false;
+       }
+       else{
+         flag = true;
+       }
+      
     }
   }
   

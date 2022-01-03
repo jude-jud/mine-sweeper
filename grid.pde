@@ -1,5 +1,6 @@
 class Grid {
   public Cell[][] grid;
+  public int bombNumber = 0;
   public Grid() {
     grid = new Cell[40][40];
     for (int row = 0; row < 40; row++) {
@@ -10,6 +11,7 @@ class Grid {
     this.placeBombs();
   }
   public void show() {
+    text(bombNumber,800,20);
     for (int row = 0; row < 40; row++) {
       for (int column = 0; column < 40; column++) {
         grid[row][column].update();
@@ -22,6 +24,7 @@ class Grid {
         int coin = int(random(0, 10));
         if (coin == 1) {
           grid[row][column].bomb = true;
+          bombNumber += 1;
         } else {
           grid[row][column].bomb = false;
         }
@@ -46,7 +49,20 @@ class Grid {
       }
     }
   }
+  public boolean win(){
+    int count = 0;
+    for(int row = 0;row<40;row++){
+      for(int column = 0; column<40;column++){
+        if(grid[row][column].click == false){
+          count +=1;
+        }
+      }
+    }
+    if(count > bombNumber){
+      return(false);
+    }
+    else{
+      return(true);
+    }
+  }
 }
-
-
-//1) winning and losing and flags
