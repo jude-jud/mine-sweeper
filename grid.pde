@@ -49,4 +49,4 @@ class Grid {
 }
 
 
-//1) fix bug with counting bombs
+//1) winning and losing and flags
